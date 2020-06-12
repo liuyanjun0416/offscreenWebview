@@ -12,6 +12,7 @@ import SwiftUI
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    var window2: UIWindow?
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -21,13 +22,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Create the SwiftUI view that provides the window contents.
         let contentView = ContentView()
+        let contentView2 = ContentView2()
 
-        // Use a UIHostingController as window root view controller.
+//         Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
             window.rootViewController = UIHostingController(rootView: contentView)
             self.window = window
             window.makeKeyAndVisible()
+            let window2 = UIWindow(windowScene: windowScene)
+            window2.clipsToBounds = true
+            window2.frame = CGRect(x: 0, y: 20, width: 300, height: 300);
+            window2.bounds = CGRect(x: 0, y: 0, width: 300, height: 300);
+            window2.rootViewController = UIHostingController(rootView: contentView2)
+            self.window2 = window2
+            window2.makeKeyAndVisible()
         }
     }
 
